@@ -43,7 +43,7 @@ cd iss-tracker
 
 2. Start the application using Docker Compose:
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This command will:
