@@ -202,7 +202,7 @@ The application converts Cartesian coordinates (X, Y, Z) to spherical coordinate
 To run the unit tests for the application:
 
 ```bash
-docker-compose exec flask pytest test_iss_tracker.py
+docker compose exec flask-app pytest test_iss_tracker.py
 ```
 
 ## Implementation Notes
