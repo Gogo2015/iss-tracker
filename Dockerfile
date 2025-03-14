@@ -13,6 +13,7 @@ COPY iss_tracker.py . test_iss_tracker.py ./
 
 RUN chmod +rx iss_tracker.py
 
+ENV PATH="/app:$PATH"
 
 ENTRYPOINT [ "python" ]
-CMD ["python", "iss_tracker.py"]
+CMD ["iss_tracker.py"]
