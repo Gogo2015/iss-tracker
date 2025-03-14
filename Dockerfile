@@ -1,6 +1,6 @@
 FROM python:3.12
 
-WORKDIR /app
+WORKDIR /code
 
 # Copy requirements first
 COPY requirements.txt .
@@ -13,6 +13,7 @@ COPY iss_tracker.py test_iss_tracker.py ./
 
 RUN chmod +rx iss_tracker.py
 
-ENV PATH="/app:$PATH"
+ENV PATH="/code:$PATH"
 
-CMD ["python", "iss_tracker.py"]
+ENTRYPOINT [ "python" ]
+CMD [ "iss_tracker.py" ]
