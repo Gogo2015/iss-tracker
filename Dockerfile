@@ -15,5 +15,4 @@ RUN chmod +rx iss_tracker.py
 
 ENV PATH="/app:$PATH"
 
-ENTRYPOINT [ "python" ]
-CMD ["iss_tracker.py"]
+CMD ["python", "iss_tracker.py"]
