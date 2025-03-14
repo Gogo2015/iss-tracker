@@ -8,7 +8,6 @@ services:
             - 6379:6379
         volumes:
             - ./data:/data
-        user: "1000:1000"
         command: ["--save", "1", "1"]
     flask-app:
         build:
