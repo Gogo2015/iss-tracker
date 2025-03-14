@@ -16,6 +16,6 @@ services:
             dockerfile: ./Dockerfile
         depends_on:
             - redis-db
-        image: Gogo2015/iss_tracker:1.0
+        image: username/iss_tracker:1.0
         ports:
             - 5000:5000
