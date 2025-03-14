@@ -120,7 +120,9 @@ class ISSTracker:
     def epochs(self):
         # Make sure data is in Redis
         self.read_data()
-        return redis_client.lrange("iss_epochs", 0, -1)
+        epochs = redis_client.lrange("iss_epochs", 0, -1)
+        #Convert from bytes to strings
+        return [epoch.decode('utf-8') for epoch in epochs]
 
     def epochs_limited(self, limit, offset):
         # Make sure data is in Redis
@@ -130,8 +132,10 @@ class ISSTracker:
         epochs = epochs[offset:]
         epochs = epochs[:limit]
 
-        return epochs
 
+
+        return [epoch.decode('utf-8') for epoch in epochs]
+    
     def get_state_vector_epoch(self, epoch):
         # Make sure data is in Redis
         self.read_data()
@@ -141,6 +145,8 @@ class ISSTracker:
         
         if not data:
             return None
+        
+        data = {key.decode('utf-8'): val.decode('utf-8') for key, val in data.items()}
             
         return {
             'epoch': data['epoch'],
