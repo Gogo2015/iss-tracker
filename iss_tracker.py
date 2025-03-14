@@ -26,9 +26,6 @@ class ISSTracker:
         self.geolocator = Nominatim(user_agent="iss-tracker")
 
     def read_data(self):
-        # Check if data already in Redis
-        if redis_client.exists("iss_epochs"):
-            return
         
         response = requests.get(self.url)
         root = ET.fromstring(response.text)
