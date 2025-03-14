@@ -15,9 +15,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 # Redis setup
-redis_host = os.environ.get('REDIS_HOST', 'redis')
-redis_port = int(os.environ.get('REDIS_PORT', 6379))
-redis_client = redis.Redis(host=redis_host, port=redis_port, decode_responses=True)
+redis_client = redis.Redis(host='127.0.0.1', port=6379, db=0)
 
 class ISSTracker:
     
