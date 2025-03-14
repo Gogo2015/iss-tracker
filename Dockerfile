@@ -9,7 +9,7 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Copy the rest of the application
-COPY iss_tracker.py . test_iss_tracker.py ./
+COPY iss_tracker.py test_iss_tracker.py ./
 
 RUN chmod +rx iss_tracker.py
 
