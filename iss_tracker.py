@@ -246,8 +246,9 @@ def epoch_limit_data():
             except ValueError:
                 return {"error": "Limit and offset must be integers"}, 400
 
-            return tracker.epochs_limited(limit, offset)
-        return tracker.epochs()
+            epochs = tracker.epochs_limited(limit, offset)
+            return {"epochs" : epochs}
+        return {"epochs" : tracker.epochs()}
     except Exception as e:
         logger.error(f"Error in /epochs route: {e}")
         return {"error": str(e)}, 500
